@@ -11,6 +11,8 @@ site: bookdown::bookdown_site
 output:
   html_document:
     code_folding: show
+    toc: true
+    toc_float: true
 
 documentclass: book
 bibliography: [book.bib, packages.bib]
