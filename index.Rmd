@@ -13,6 +13,8 @@ output:
     code_folding: show
     toc: true
     toc_float: true
+    theme: united
+    highlight: tango
 
 documentclass: book
 bibliography: [book.bib, packages.bib]
