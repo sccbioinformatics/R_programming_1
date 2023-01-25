@@ -3,7 +3,7 @@
 Open up RStudio, and it will look something like this:
 
 ```{r, out.width='90%', fig.align='center',echo=FALSE}
-knitr::include_graphics(rep("images/rstudio.png"))
+knitr::include_graphics(rep("images/Rstudio_new.png"))
 ```
 
 The different parts are:
