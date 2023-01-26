@@ -34,7 +34,7 @@ ano$`Pr(>F)`[1]
 ```
 
 ***Exercise:*** Make a function called `do.anova` which takes a vector `v`and a vector `groups`, performs linear modelling and ANOVA and returns *just* the p-value.
-```{r}
+```{r,class.source = 'fold-hide',results=F}
 do.anova <- function(v,groups){
   
   mod <- lm(v~ -1+groups)

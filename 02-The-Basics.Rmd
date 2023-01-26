@@ -85,6 +85,44 @@ mean(d) # calculate the mean of the vector
 sd(d) # the standard deviation
 ```
 
+##Conditionals
+This is important stuff. If we want to ask whether something is equal to something else, we need to use the `==` operator, NOT `=`. Try this:
+
+```{r fig.width=5, fig.height=4}
+x == 5
+```
+
+you will see that all are marked `FALSE` apart from the 5th which is `TRUE`. If you want to know specifically which element equals 5, use `which`:
+
+```{r fig.width=5, fig.height=4}
+which(x == 5)
+```
+
+And you'll see it now says the 5th element of vector x equals 5. A few more:
+
+```{r,eval=FALSE}
+which(x < 5)
+which(x <= 5)
+which(x >= 5)
+which(x > 5)
+which(x != 5)
+```
+
+Lets make another vector `y`:
+```{r}
+y <- 7:10
+```
+
+Finding the intersect is easy:
+```{r}
+intersect(x,y)
+```
+
+What do you think this does?
+```{r,eval=FALSE}
+x[!x %in% y]
+```
+
 ## Basic plotting
 
 Lets use this vector `d` and plot them:

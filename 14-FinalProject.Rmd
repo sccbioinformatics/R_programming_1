@@ -10,7 +10,7 @@ $$d_{ij}=\sqrt{\sum{(g^{i}_t-g^{j}_t)^2}}$$
 
 To measure the compactness of a clustering, we sum the pairwise distances for each cluster $K$, then sum over all $K$s and them divide by $K$.
 
-$$ E(K)-\frac{1}{K}\sum^K_{k=1} \left[ \sum_{i\epsilon Ck}\sum_{j\epsilon Ck} d_{ij}\right] $$
+$$ E(K)=\frac{1}{K}\sum^K_{k=1} \left[ \sum_{i\epsilon Ck}\sum_{j\epsilon Ck} d_{ij}\right] $$
 
 For a well clustered data, $E(K)$ should be as **small** as possible. Lets say we have 1000 genes, and we want to partition them into 10 clusters. The number of combinations is too high for us to try each one to brute force a true $E$. This is why we use a *heuristic* algorithm to get us as close to the solution as possible in a smaller amount of time.
 

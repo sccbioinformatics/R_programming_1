@@ -16,5 +16,12 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + geom_poi
 
 ```
 
+We can also break up a data frame up on attributes and store the contents in a list (which we have already discussed). For example by species:
+
+```{r,eval=TRUE}
+iris.sp <- split(iris,iris$Species)
+names(iris.sp)
+```
+
 
 

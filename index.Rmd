@@ -33,13 +33,13 @@ The purpose of this course is to teach you the basics of the R language and give
 Programming is like any skill, the more you practice the better you get. ***It's really important that you keep using what you have learned after the course is completed*** otherwise there is a good chance you will forget everything and you'll be back to square one.
 
 ## Why Use R?
-R is a programming language with a focus on mathematics and statistics, but R can be used for a wide variety of applications given the flexibility of the language. R is also free, and available for all operating systems. Given the richness of the language and no cost to use it, bioinformaticians have used R for more than 20 years as the platform for which which to develop packages to solve bioinformatics problems.
+R is a high-level programming language with a focus on mathematics and statistics, but R can be used for a wide variety of applications given the flexibility of the language. R is also free, and available for all operating systems. Given the richness of the language and no cost to use it, bioinformaticians have used R for more than 20 years as the platform for which which to develop packages to solve bioinformatics problems.
 
 The [BioConductor Project](https://www.bioconductor.org/) is a repository for bioinformatics tools which continues to grow, and hosts packages such as DESeq2 which you may have heard of. Some other popular packages such as Seurat aren't actually hosted by Bioconductor, but in the main R package repository. We'll cover package installation later later.
 
-## What other languages do bioinformaticians use?
+## Which other languages do bioinformaticians use?
 
-The Python language has been rocketing in popularity for the past few years, particularly among data scientists whi make use of the AI/ML tools such as Tensorflow and PyTorch. Scanpy is a very popular package for single-cell analysis. For very computationally intensive tasks (e.g sequence alignment), languages such as C/C++/Rust are more commonly used, but these are far more difficult to learn.
+The Python language has been rocketing in popularity for the past few years, particularly among data scientists who make use of the AI/ML tools such as Tensorflow and PyTorch. Scanpy is a very popular package for single-cell analysis. For very computationally intensive tasks (e.g sequence alignment), languages such as C/C++/Rust are more commonly used, but these are far more difficult to learn.
 
 ## How will this course work?
 We're going to take a differnt approach to this course, so it's somewhat experimental at this point. You will be taught the basics of the R lauguage doing small exercises along the way. However, we will finish by you undertaking a project which will push you quite hard. The aim is that by tacking a more difficult problem will consolidate what you have learnt, and learn more by having to look up solutions to the problems you will likely face.

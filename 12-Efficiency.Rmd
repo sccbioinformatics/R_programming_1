@@ -24,6 +24,6 @@ values <- vector("numeric",100000) # make an empty container to catch the values
 system.time(for(i in 1:100000){  values[i] <- i})
 length(values) #check length
 ```
-**Why, do you think, this was so much faster?**
+**Why do you think this was so much faster?**
 
 
