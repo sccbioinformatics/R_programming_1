@@ -42,7 +42,7 @@ The [BioConductor Project](https://www.bioconductor.org/) is a repository for bi
 The Python language has been rocketing in popularity for the past few years, particularly among data scientists who make use of the AI/ML tools such as Tensorflow and PyTorch. Scanpy is a very popular package for single-cell analysis. For very computationally intensive tasks (e.g sequence alignment), languages such as C/C++/Rust are more commonly used, but these are far more difficult to learn.
 
 ## How will this course work?
-We're going to take a differnt approach to this course, so it's somewhat experimental at this point. You will be taught the basics of the R lauguage doing small exercises along the way. However, we will finish by you undertaking a project which will push you quite hard. The aim is that by tacking a more difficult problem will consolidate what you have learnt, and learn more by having to look up solutions to the problems you will likely face.
+We're going to take a different approach to this course, so it's somewhat experimental at this point. You will be taught the basics of the R language doing small exercises along the way. However, we will finish by you undertaking a project which will push you quite hard. The aim is that by tacking a more difficult problem will consolidate what you have learnt, and learn more by having to look up solutions to the problems you will likely face.
 
 ## Getting R and RStudio
 
