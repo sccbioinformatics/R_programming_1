@@ -85,7 +85,7 @@ mean(d) # calculate the mean of the vector
 sd(d) # the standard deviation
 ```
 
-##Conditionals
+## Conditionals
 This is important stuff. If we want to ask whether something is equal to something else, we need to use the `==` operator, NOT `=`. Try this:
 
 ```{r fig.width=5, fig.height=4}
@@ -118,7 +118,7 @@ Finding the intersect is easy:
 intersect(x,y)
 ```
 
-What do you think this does?
+What do you think this does?:
 ```{r,eval=FALSE}
 x[!x %in% y]
 ```

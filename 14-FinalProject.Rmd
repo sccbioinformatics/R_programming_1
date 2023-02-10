@@ -27,6 +27,8 @@ Lets go through the process of the algorithm. To do this you need 4 parameters:
 3. Number of clusters $K$
 4. How many iterations to perform $I$.
 
+**The first thing you need to do is scale each profile so it lies between 0 and 1.**
+
 Algorithm goes:
 
 &nbsp;&nbsp;&nbsp;&nbsp;Randomly assign each gene to one of your K clusters.
@@ -68,6 +70,7 @@ Try and break the problem up into functions which can be called when needed. It 
 By tackling a more difficult problem the idea is that you will dig deeper into the language and really understand how things work in the background of the functions you use in packages such as Seurat etc.
 
 ***Are there libraries in R to do this?***
+
 Yes there are, but you won't learn anything by using them which is why we are coding this "by hand".
 
 ***A little inspiration***
