@@ -24,7 +24,7 @@ for(i in 1:10){
 ```
 The container `vec` is initialised outside the loop, and then populated by concatenating to it after every iteration of the loop.
 
-***Exercise:*** Initialise an empty container, and for `gmp`, calculate the mean of each row (gene), and store the results in the containers you made.
+***Exercise:*** Initialise an empty container, and for `gmp`, calculate the mean of each row (gene), and store the results in the container you made.
 
 ```{r,class.source = 'fold-hide',results=F}
 gmp.row.mean <- NULL
