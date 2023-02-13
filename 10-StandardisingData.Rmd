@@ -28,6 +28,7 @@ boxplot(hspc.zs, las = 2)
 # compare to the original data
 boxplot(hspc.var, las = 2)
 ```
+
 We can see now the data has been centralised around 0.
 
 ***Exercise:*** Do some Googling and see if there is a built in function in R that will calculate zscores for you. Use it to zscore your data and save the output in `hspc.zs.v2`.

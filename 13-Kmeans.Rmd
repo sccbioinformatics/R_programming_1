@@ -29,7 +29,7 @@ The kmeans algorithm needs the user to say how many clusters are being searched 
 5. Repeat 100 times steps 2, 3, and 4.
 
 We'll now work through this problem together and crowd source a solution.
-```{r}
+```{r,class.source = 'fold-hide',results=T}
 centroids <- ycc[sample(1:256, 8, replace=F),] # make a vector of random clusters. We are sampling 8 numbers (since we want 8 centroids) out of the vector 1:256 which represents the genes in ycc. Check that we indeed have 256 genes in ycc!
 
 dists <- matrix(0, nrow = 256, ncol = 8) # make an empty matrix to fill with distances.
