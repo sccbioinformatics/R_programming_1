@@ -43,7 +43,7 @@ This can be an awkward format for some operations so we can convert it to a simp
 hspc.data <- as.matrix(hspc.data)
 lthsc <- as.matrix(lthsc)
 mep <- as.matrix(mep)
-gmp <- as.matrix(mep)
+gmp <- as.matrix(gmp)
 ```
 
 Try this now:
