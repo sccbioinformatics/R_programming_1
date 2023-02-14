@@ -8,41 +8,41 @@ R has many ways to do this, and many packages have been written specifically for
 
 To use `hclust` we need to provide a distance matrix. This is done using the `dist` function:
 ```{r}
-hspc.dst <- dist(hspc.zs)
+hspc.dst.genes <- dist(hspc.zs)
 ```
 
 We then cluster using `hclust`:
 ```{r}
-hspc.hc <- hclust(hspc.dst)
+hspc.hc.genes <- hclust(hspc.dst.genes)
 ```
 
 Plot the dendrogram:
 ```{r}
-plot(hspc.hc)
+plot(hspc.hc.genes)
 ```
 
 You'll see form this what we have clustered are the genes. If you want to cluster the cells then you need to transpose the matrix using `t()`:
 ```{r}
-hspc.dst <- dist(t(hspc.zs)) #transpose the matrix here!
-hspc.hc <- hclust(hspc.dst)
-plot(hspc.hc)
+hspc.dst.cells <- dist(t(hspc.zs)) #transpose the matrix here!
+hspc.hc.cells <- hclust(hspc.dst.cells)
+plot(hspc.hc.cells)
 ```
 
 We can see this is pretty much useless. It is far to compact and doesn't really tell us anything. What we would like is to make a heatmap where the genes and samples are clustered. To do this we need to retrieve some information created by `hclust`
 
 Call `names` to see which information is available in the newly created object:
 ```{r}
-names(hspc.hc)
+names(hspc.hc.cells)
 ```
 
 What we need here is the component called `order`. We can get this using the `$` assignment.
 ```{r}
-hspc.hc$order
+hspc.hc.cells$order
 ```
 
-This is the order the cells appear in form left to right when you plotted the dendrogram of cells just before. We use this to reorder the z-scored matrix:
+This is the order the cells appear in form left to right when you plotted the dendrogram of cells just before. We use this to reorder the z-scored matrix, but also using the gene order too:
 ```{r}
-hspc.cell.clustered <- hspc.zs[, hspc.hc$order]
+hspc.cell.clustered <- hspc.zs[hspc.hc.genes$order, hspc.hc.cells$order]
 ```
 
 To make a heatmap of the data call `image`:
@@ -73,6 +73,28 @@ dev.off()
 The file is opened, the plot is made, and `dev.off()` closes and finalises the file (i.e. nothing more can be written to it).
 
 ***Exercise:*** call `help (pheatmap)` and see what options are available. Play with the options to see what they do.
+
+Lets pimp the heatmap by stripping it of useless stuff and adding a colour bar (Raquel's code):
+
+```{r}
+
+library(stringr) # install this first if you don't have it.
+
+coldata <- data.frame(samples = colnames(hspc.zs)) # make a data frame
+
+coldata$type <- sapply(str_split(colnames(hspc.zs), "[[.]]"), `[[`, 1) #split the names around the "." and use this to define the cell type.
+rownames(coldata) <- coldata$samples # add rownames to the data frame
+
+pheatmap(hspc.zs, 
+         annotation_col = coldata[,c("type"),drop=F], 
+         show_colnames = F, 
+         show_rownames = F, treeheight_row = 0,
+         treeheight_col = 0)
+
+
+```
+
+Beautiful!
 
 Clustering is pretty pointless if you can't define groups and get to the gene names. First we need to capture the output from `pheatmap` as a variable:
 ```{r}

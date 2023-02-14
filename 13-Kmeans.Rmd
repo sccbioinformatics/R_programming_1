@@ -22,7 +22,7 @@ e.dist <- function(v1, v2){
 
 The kmeans algorithm needs the user to say how many clusters are being searched for, so in this case we'll say **8**.
 
-1. Define 8 centroids randomly, i.e. pick 8 genes at random.
+1. Define 8 centroids randomly, i.e. pick 8 genes (rows) at random.
 2. Calculate the distance between each gene to each of the 8 centroids.
 3. Assign each gene to its closest centroid.
 4. For each of the 8 clusters, calculate a new centroid.
