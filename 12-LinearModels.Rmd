@@ -56,10 +56,24 @@ sig.genes <- names(sort(p.adj))[1:500]
 
 Heatmap them!
 ```{r}
+pheatmap(hspc.data[sig.genes,],scale="row",
+         show_colnames = F, 
+         show_rownames = F,
+         treeheight_row = 0,
+         treeheight_col = 0)
+
+```
+
+There are a few rouge values in the data which is why it looks washed out. Lets set a manual range:
+
+```{r}
 library(RColorBrewer)
 breaksList = seq(-3, 3, by = 0.2)
-hspc.zs.all <- t(apply(hspc.data, 1, zscore))
 
-pheatmap(hspc.zs.all[sig.genes,],breaks = breaksList,color = colorRampPalette(rev(brewer.pal(n = 7, name = "RdYlBu")))(length(breaksList)))
+pheatmap(hspc.data[sig.genes,],scale="row",breaks = breaksList,color = colorRampPalette(rev(brewer.pal(n = 7, name = "RdYlBu")))(length(breaksList)))
+
 ```
+
+
+
 
