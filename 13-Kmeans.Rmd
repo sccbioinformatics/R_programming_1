@@ -63,12 +63,33 @@ ycc.cl <- cbind(as.factor(clusters), ycc)
 
 colnames(ycc.cl)[1] <- c("Cluster")
 
-ycc.df <- data.frame(ID = rownames(ycc.cl), ycc.cl, row.names = NULL)
+ycc.df <- data.frame(gene = rownames(ycc.cl), ycc.cl, row.names = NULL)
 
-ytm <- melt(ycc.df, c("ID", "Cluster"))
+ytm <- melt(ycc.df, c("gene", "Cluster"))
 
-ggplot(ytm, aes(x = variable, y = value, group = ID)) + geom_line() + facet_wrap(~Cluster, ncol = 3)
+ggplot(ytm, aes(x = variable, y = value, group = gene)) + geom_line() + facet_wrap(~Cluster, ncol = 3)
+```
 
+
+Raquels ggplot2 method:
+```{r,class.source = 'fold-hide',results=F}
+
+ycc_df <- as.data.frame(ycc)
+ycc_df$clusters <- clusters
+
+library(reshape2)
+library(ggplot2)
+
+ycc_df$gene <- rownames(ycc_df)
+ycc_df_melt <- melt(ycc_df, c("clusters", "gene"))
+
+ycc_df_melt$clusters <- as.factor(ycc_df_melt$clusters)
+
+ggplot(data = ycc_df_melt, aes(x=variable, y=value, group = gene, colour=clusters)) + 
+  geom_line() + 
+  facet_wrap(~clusters, scales = "free_x") + 
+  theme_classic() + 
+  labs(x="Time", y="Expression") 
 ```
 
 base R:
