@@ -117,3 +117,41 @@ for(k in 1:8){
 Don't forget to document your functions nicely so that there is no room for confusions.
 
 
+```{r,class.source = 'fold-hide',results=F}
+my.kmeans <- function(data,nclus,iter){ # setup a functon that will take some data, number of clusters, and max number of iterations.
+  
+  centroids <- data[sample(1:nrow(data), nclus, replace=F),] 
+  
+  dists <- matrix(0, nrow = nrow(data), ncol = nclus) 
+  
+  
+  clusters <- sample(1:nrow(centroids),nrow(data),replace=T) #make a random assignment of clusters to start off
+  
+  for(iteration in 1:iter){ # start the iterations
+    
+    for(gene in 1:nrow(data)){
+      
+      for(k in 1:nclus){
+        dists[gene, k] <- e.dist(data[gene,], centroids[k,]) # for each gene calculate the distance to each centroid (k).
+      }
+    }
+    
+    clusters.new <- apply(dists, 1, which.min) # get the mnew clusters assignments
+    if(all.equal(clusters,clusters.new)==T){ #see if it equals the previous round
+      break # if so, stop
+    }else(clusters <- clusters.new) # otherwise set the clusters to the new.clusters
+    
+    for(k in 1:nrow(centroids)){
+      centroids[k,] <- apply(data[which(clusters == k),], 2, mean) # define new centroids.
+    }
+    print(iteration)
+  }
+  clusters.new # return the clusters.
+}
+
+clus.5 <- my.kmeans(ycc,5,100) # run it using 5 clusters
+table(clus.5) # see how many genes belong to each cluster.
+
+
+
+```
