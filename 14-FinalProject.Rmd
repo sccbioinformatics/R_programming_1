@@ -59,7 +59,7 @@ $R(0,1)$ is a randomly generated number from a uniform distribution that lies be
 
 1. Code this algorithm using the same yeast timecourse data.
 2. Put this algorithm into a function.
-3. When running the function, make sure the starting $V_{start}$ and final $V_{final}$ are printed to the screen.
+3. When running the function, make sure the starting $E_{start}$ and final $E_{final}$ are printed to the screen.
 
 ***Tip***
 
@@ -79,7 +79,7 @@ Before you start, read [this](https://www.newyorker.com/magazine/2018/12/10/the-
 
 ***To make it tasty....***
 
-We'll reconvene in X weeks and we'll run each of your implementations on the same laptop and see who a) can get to the solution in the fastest time, and b) get the lowest $V_{final}$.
+We'll reconvene in X weeks and we'll run each of your implementations on the same laptop and see who a) can get to the solution in the fastest time, and b) get the lowest $E_{final}$.
 
 The winner will get a prize bestowed upon us courtesy of the Research School.
 
