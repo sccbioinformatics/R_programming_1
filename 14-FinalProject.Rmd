@@ -43,7 +43,7 @@ for each iteration $I$ {
     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($E_{new}$ < $E_{old}$) {accept the move}
     
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($E_{new} > E_{old})$ {if($e^{-\frac{V_{new}-V_{old}}{T}} > R(0,1)$) {accept the move} }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($E_{new} > E_{old})$ {if($e^{-\frac{E_{new}-E_{old}}{T}} > R(0,1)$) {accept the move} }
         
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else{reject the move}
   
