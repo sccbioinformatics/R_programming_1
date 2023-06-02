@@ -22,8 +22,8 @@ knitr::include_graphics(rep("images/EnergyLandscape.png"))
 
 Lets go through the process of the algorithm. To do this you need 4 parameters:
 
-1. The temperature of the system $T$
-2. Cooling factor $c$
+1. The temperature of the system $Temp$
+2. Cooling factor $cool$
 3. Number of clusters $K$
 4. How many iterations to perform $I$.
 
@@ -43,11 +43,11 @@ for each iteration $I$ {
     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($E_{new}$ < $E_{old}$) {accept the move}
     
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($E_{new} > E_{old})$ {if($e^{-\frac{E_{new}-E_{old}}{T}} > R(0,1)$) {accept the move} }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($E_{new} > E_{old})$ {if($e^{-\frac{E_{new}-E_{old}}{Temp}} > R(0,1)$) {accept the move} }
         
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else{reject the move}
   
-&nbsp;&nbsp;&nbsp;&nbsp;Set a new $T$ by doing $T=T \times c$
+&nbsp;&nbsp;&nbsp;&nbsp;Set a new $Temp$ by doing $Temp=Temp \times cool$
 }
 
 Done
