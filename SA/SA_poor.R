@@ -88,7 +88,7 @@ sa.nsg <- function(data,K,Iter,Temp,cool){
 #Lets use these functions
 
 # read the data
-ycc <- read.delim("Spellman_Yeast_Cell_Cycle.tsv",row.names=1,header=T,sep="\t")
+ycc <- read.delim("../Spellman_Yeast_Cell_Cycle.tsv",row.names=1,header=T,sep="\t")
 
 #make it a matrix
 ycc <- as.matrix(ycc)

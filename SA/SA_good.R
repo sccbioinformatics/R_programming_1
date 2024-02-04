@@ -104,7 +104,7 @@ sa.eb <- function(data,K,Iter,Temp,cool){
   clusters
 }
 
-ycc <- read.delim("Spellman_Yeast_Cell_Cycle.tsv",row.names=1,header=T,sep="\t")
+ycc <- read.delim("../Spellman_Yeast_Cell_Cycle.tsv",row.names=1,header=T,sep="\t")
 ycc <- as.matrix(ycc)
 
 
