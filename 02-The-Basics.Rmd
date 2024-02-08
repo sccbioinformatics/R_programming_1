@@ -154,7 +154,7 @@ library(ggplot2)
 
 The first thing we need to do is make a **data.frame** of the data by doing:
 ```{r}
-df <- data.frame(c = c, d = d)
+df <- data.frame(col1 = c, col2 = d)
 ```
 
 This makes a table. You can see the first few lines by doing:
@@ -164,17 +164,17 @@ df[1:5,]
 
 Lets make the plot:
 ```{r fig.width=5, fig.height=4}
-ggplot(data = df, aes(x = c, y = d)) + geom_line()
+ggplot(data = df, aes(x = col1, y = col2)) + geom_line()
 ```
 
 We can even add the points:
 ```{r fig.width=5, fig.height=4}
-ggplot(data = df, aes(x = c, y = d)) + geom_line() + geom_point()
+ggplot(data = df, aes(x = col1, y = col2)) + geom_line() + geom_point()
 ```
 
 and change the colour of each:
 ```{r fig.width=5, fig.height=4}
-ggplot(data = df, aes(x = c, y = d)) + geom_line(color = "red") + geom_point(color = "green")
+ggplot(data = df, aes(x = col1, y = col2)) + geom_line(color = "red") + geom_point(color = "green")
 ```
 
 So ggplot is all about *layering* information onto plots, and this makes it very customisable. It definitely has a steeper learning curve, but worth it if you produce lots of plots on a day-to-day. If you're struggling with the idea, use this analogy of ggplots as a cake (Tanya Shapiro (\@tanya_shapiro), Twitter):

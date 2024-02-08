@@ -18,7 +18,7 @@ dim(hspc.data) # number of rows and columns together
 colnames(hspc.data) #output the columns headers
 ```
 
-***Exercise:*** Using subsetting we learnt about earlier, split this data matrix into three parts called `lthsc`, `mep` and `gmp` to separate the cell types shown in the headings. For this look at the help page for a function called `grep`.
+***Exercise:*** Using subsetting we learnt about earlier, make three new matrices called `lthsc`, `mep` and `gmp` to separate the cell types shown in the headings. For this look at the help page for a function called `grep`.
 
 ```{r,class.source = 'fold-hide',results=F}
 lthsc <- hspc.data[, grep("LTHSC", colnames(hspc.data))]
