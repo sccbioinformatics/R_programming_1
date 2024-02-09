@@ -1,0 +1,86 @@
+# The Final Project
+
+Your final project is going to combine everything you have learned over the last few days to tackle a final project you will do in your own time over the next X weeks. It will be along the same lines the Kmeans clustering we just did, but this time we're going to cluster the data using the Metropolis-Hastings algorithm. This is a simulated annealing process, so we need to learn how that works first.
+
+## Optimisation problems
+
+Programming an optimisation problem is a great way of learning how to code. In this case we are going to tackle a minimisation problem. We can think of well clustered data having low energy, in that, each cluster is tight and has little within cluster variance. If we calculate the variance *within* each cluster, and sum over all clusters, we get the total variance (energy) of the system. Lets go back to the equation we know that measures the distance between two genes $i$ and $j$ over $t$ timepoints:
+
+$$d_{ij}=\sqrt{\sum{(g^{i}_t-g^{j}_t)^2}}$$
+
+To measure the compactness of a clustering, we sum the pairwise distances for each cluster $K$, then sum over all $K$s and them divide by $K$.
+
+$$ E(K)=\frac{1}{K}\sum^K_{k=1} \left[ \sum_{i\epsilon Ck}\sum_{j\epsilon Ck} d_{ij}\right] $$
+
+For a well clustered data, $E(K)$ should be as **small** as possible. Lets say we have 1000 genes, and we want to partition them into 10 clusters. The number of combinations is too high for us to try each one to brute force a true $E$. This is why we use a *heuristic* algorithm to get us as close to the solution as possible in a smaller amount of time.
+
+If we tried to visualise the energy landscape we can imagine it might look something like this:
+
+```{r, out.width='60%', fig.align='center',echo=FALSE}
+knitr::include_graphics(rep("images/EnergyLandscape.png"))
+```
+
+Lets go through the process of the algorithm. To do this you need 4 parameters:
+
+1. The temperature of the system $Temp$
+2. Cooling factor $cool$
+3. Number of clusters $K$
+4. How many iterations to perform $I$.
+
+**The first thing you need to do is scale each profile so it lies between 0 and 1.**
+
+Algorithm goes:
+
+&nbsp;&nbsp;&nbsp;&nbsp;Randomly assign each gene to one of your K clusters.
+
+for each iteration $I$ {
+
+&nbsp;&nbsp;&nbsp;&nbsp;Calculate $E$. Call this $E_{old}$
+    
+&nbsp;&nbsp;&nbsp;&nbsp;Randomly select a single gene and assign it randomly to another cluster.
+  
+&nbsp;&nbsp;&nbsp;&nbsp;Calculate $E_{new}$
+    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($E_{new}$ < $E_{old}$) {accept the move}
+    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($E_{new} > E_{old})$ {if($e^{-\frac{E_{new}-E_{old}}{Temp}} > R(0,1)$) {accept the move} }
+        
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else{reject the move}
+  
+&nbsp;&nbsp;&nbsp;&nbsp;Set a new $Temp$ by doing $Temp=Temp \times cool$
+}
+
+Done
+
+$R(0,1)$ is a randomly generated number from a uniform distribution that lies between 0 and 1.
+
+
+***Things to do***
+
+1. Code this algorithm using the same yeast timecourse data.
+2. Put this algorithm into a function.
+3. When running the function, make sure the starting $E_{start}$ and final $E_{final}$ are printed to the screen.
+
+***Tip***
+
+Try and break the problem up into functions which can be called when needed. It will be easier to write the main algorithm.
+
+***Why this exercise is a good one***
+
+By tackling a more difficult problem the idea is that you will dig deeper into the language and really understand how things work in the background of the functions you use in packages such as Seurat etc.
+
+***Are there libraries in R to do this?***
+
+Yes there are, but you won't learn anything by using them which is why we are coding this "by hand".
+
+***A little inspiration***
+
+Before you start, read [this](https://www.newyorker.com/magazine/2018/12/10/the-friendship-that-made-google-huge), and then watch [this](https://youtu.be/USC6c9Dtak8).
+
+***To make it tasty....***
+
+We'll reconvene in X weeks and we'll run each of your implementations on the same laptop and see who a) can get to the solution in the fastest time, and b) get the lowest $E_{final}$.
+
+The winner will get a prize bestowed upon us courtesy of the Research School.
+
+
