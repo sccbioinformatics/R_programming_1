@@ -81,6 +81,4 @@ Before you start, read [this](https://www.newyorker.com/magazine/2018/12/10/the-
 
 We'll reconvene in X weeks and we'll run each of your implementations on the same laptop and see who a) can get to the solution in the fastest time, and b) get the lowest $E_{final}$.
 
-The winner will get a prize bestowed upon us courtesy of the Research School.
-
 
