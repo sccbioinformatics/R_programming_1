@@ -20,6 +20,8 @@ If we tried to visualise the energy landscape we can imagine it might look somet
 knitr::include_graphics(rep("images/EnergyLandscape.png"))
 ```
 
+**The first thing you need to do is rescale each gene (row) of the data so the smallest value is given 0, and the highest value is given 1.**
+
 Lets go through the process of the algorithm. To do this you need 4 parameters:
 
 1. The temperature of the system $Temp$
@@ -27,7 +29,6 @@ Lets go through the process of the algorithm. To do this you need 4 parameters:
 3. Number of clusters $K$
 4. How many iterations to perform $I$.
 
-**The first thing you need to do is scale each profile so it lies between 0 and 1.**
 
 Algorithm goes:
 
@@ -80,7 +81,5 @@ Before you start, read [this](https://www.newyorker.com/magazine/2018/12/10/the-
 ***To make it tasty....***
 
 We'll reconvene in X weeks and we'll run each of your implementations on the same laptop and see who a) can get to the solution in the fastest time, and b) get the lowest $E_{final}$.
-
-The winner will get a prize bestowed upon us courtesy of the Research School.
 
 
