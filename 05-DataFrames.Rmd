@@ -24,4 +24,39 @@ names(iris.sp)
 ```
 
 
+Install the `dplyr` package! Lets do a few more things with this simple data.frame:
+
+```{r,eval=TRUE}
+library(dplyr)
+setosa_data <- iris %>% filter(Species == "setosa")
+setosa_data[1:5,]
+```
+
+Try this:
+```{r,eval=TRUE}
+iris_subset <- iris %>% select(Sepal.Length, Sepal.Width, Species)
+
+iris_subset[1:5,]
+```
+
+What does this do?
+
+```{r,eval=TRUE}
+iris_sorted <- iris %>% arrange(Sepal.Length)
+head(iris_sorted)
+```
+
+Add columns:
+```{r,eval=TRUE}
+iris_mutated <- iris %>% mutate(Sepal.Area = Sepal.Length * Sepal.Width)
+head(iris_mutated)
+```
+
+```{r,eval=TRUE}
+iris_summary <- iris %>% 
+  group_by(Species) %>% 
+  summarize(Avg.Sepal.Length = mean(Sepal.Length))
+
+print(iris_summary)
+```
 

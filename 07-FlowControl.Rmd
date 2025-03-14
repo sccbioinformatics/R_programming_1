@@ -32,3 +32,16 @@ for(i in 1:nrow(gmp)){
   gmp.row.mean <- c(gmp.row.mean, mean(gmp[i,]))
 }
 ```
+
+
+Another type of flow control is `while`. for example:
+
+```{r}
+w <- 1
+while (w <= 5) {
+    print(w)
+    w <- w + 1
+}
+```
+
+We will cover `if` and `else` a bit later.
