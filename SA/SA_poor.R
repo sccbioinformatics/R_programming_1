@@ -97,16 +97,16 @@ ycc <- as.matrix(ycc)
 ycc.01 <- t(apply(ycc,1,scale.01))
 
 # run the algorithm and measure the time it takes
-system.time(clus <- sa.nsg(ycc.01,10,25000,20,0.995))
+system.time(clus <- sa.nsg(ycc.01,8,25000,20,0.995))
 
 # compare to a kmeans clustering again
-calc.E.tot(ycc.01,kmeans(ycc.01,10)$cluster)
+calc.E.tot(ycc.01,kmeans(ycc.01,8)$cluster)
 
 # DID YOU BEAT IT?
 
 
 # plot the clusters using base R
-par(mfrow=c(3,4))
+par(mfrow=c(2,4))
 
 for(i in 1:max(clus)){
   

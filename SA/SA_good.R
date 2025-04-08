@@ -110,9 +110,9 @@ ycc <- as.matrix(ycc)
 
 ycc.01 <- t(apply(ycc,1,scale.01))
 
-system.time(proc.time(clus <- sa.eb(ycc.01,10,25000,20,0.995)))
+system.time(clus <- sa.eb(ycc.01,8,25000,20,0.995))
 
-par(mfrow=c(3,4))
+par(mfrow=c(2,4))
 
 for(i in 1:max(clus)){
   
@@ -122,6 +122,43 @@ for(i in 1:max(clus)){
   
 }
 
+#########
+e.dist <- function(v1, v2){
+  d <- sqrt(sum((v1-v2)^2))
+  d
+}
 
+my.kmeans <- function(data,nclus,iter){ # setup a functon that will take some data, number of clusters, and max number of iterations.
+  
+  centroids <- data[sample(1:nrow(data), nclus, replace=F),] 
+  
+  dists <- matrix(0, nrow = nrow(data), ncol = nclus) 
+  
+  
+  clusters <- sample(1:nrow(centroids),nrow(data),replace=T) #make a random assignment of clusters to start off
+  
+  for(iteration in 1:iter){ # start the iterations
+    
+    for(gene in 1:nrow(data)){
+      
+      for(k in 1:nclus){
+        dists[gene, k] <- e.dist(data[gene,], centroids[k,]) # for each gene calculate the distance to each centroid (k).
+      }
+    }
+    
+    clusters.new <- apply(dists, 1, which.min) # get the mnew clusters assignments
+    if(all.equal(clusters,clusters.new)==T){ #see if it equals the previous round
+      break # if so, stop
+    }else(clusters <- clusters.new) # otherwise set the clusters to the new.clusters
+    
+    for(k in 1:nrow(centroids)){
+      centroids[k,] <- apply(data[which(clusters == k),], 2, mean) # define new centroids.
+    }
+    print(iteration)
+  }
+  clusters.new # return the clusters.
+}
+
+clus.8 <- my.kmeans(ycc.01,8,100) # run it using 5 clusters
 
 

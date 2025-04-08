@@ -107,10 +107,10 @@ ycc.01 <- t(apply(ycc,1,scale.01))
 
 
 
-system.time(proc.time(clus <- sa.ok(ycc.01,10,25000,20,0.995)))
+system.time(clus <- sa.ok(ycc.01,8,25000,20,0.995))
 
 # plot the clusters using base R
-par(mfrow=c(3,4))
+par(mfrow=c(2,4))
 
 for(i in 1:max(clus)){
   
